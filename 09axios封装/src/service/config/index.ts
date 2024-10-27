@@ -1,2 +1,2 @@
-export const BASE_URL = 'http://codercba.com'
-export const TIMEOUT = 5000
+export const BASE_URL = 'http://codercba.com:8000';
+export const TIMEOUT = 10000;
