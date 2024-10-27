@@ -31,3 +31,4 @@ hello = "world";
 type Gender = "M" | "F";
 const gender: Gender = "M";
 console.log(typeof gender); // string
+export {};

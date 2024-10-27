@@ -24,3 +24,4 @@ function handleMessage(message: string | number) {
   }
 }
 //这里的check更像是一个逻辑的判断，如果排除了所有的可能，就可以使用never
+export {};

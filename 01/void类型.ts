@@ -28,3 +28,4 @@ delayFunction((names, age) => {
   console.log(names, age);
 });
 //函数没有明确的返回值类型的时候返回一个void
+export {};

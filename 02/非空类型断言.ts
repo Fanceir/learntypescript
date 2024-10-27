@@ -28,3 +28,4 @@ if (infooo.friend) {
 infooo.friend!.name = "xiaohong";
 //这里是强调friend一定是不为空的，但是这样的作法是有点危险的
 //这个就叫做非空类型断言
+export {};

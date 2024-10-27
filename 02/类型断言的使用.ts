@@ -11,3 +11,4 @@ if (imgEl !== null) {
 // const age: number = 18;
 // const age3 = age as any;
 // const age4 = age3 as string;
+export {};

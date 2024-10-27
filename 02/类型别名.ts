@@ -13,3 +13,4 @@ type MyPointType = { x: number; y: number };
 function printCoord(pt: MyPointType) {
   console.log(pt.x, pt.y);
 }
+export {};

@@ -61,3 +61,4 @@ function getAnimal(animal: Iswim | Ifly) {
     animal.fly();
   }
 }
+export {};

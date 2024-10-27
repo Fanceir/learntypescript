@@ -5,4 +5,4 @@ let info = {
 };
 //这里没有指定出类型，但是ts会自动推导出类型
 console.log(info);
-
+export {};

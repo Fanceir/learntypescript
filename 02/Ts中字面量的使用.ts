@@ -29,3 +29,4 @@ const info2 = {
   method: "POST",
 } as const;
 request(info2.url, info2.method); //这个是可以的，因为直接将method: "POST"
+export {};

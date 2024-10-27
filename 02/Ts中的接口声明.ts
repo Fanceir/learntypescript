@@ -52,3 +52,4 @@ class Point implements PointInterface {
 }
 //声明别的类型的时候是用type
 //声明对象类型的时候是使用interface
+export {};

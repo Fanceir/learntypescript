@@ -20,3 +20,4 @@ function printCoordination(point: PointType) {
 // function printCoordination(point: { x: number; y: number }) {
 //   console.log(point.x);
 // }
+export {};

@@ -9,3 +9,4 @@ function parseLyric(lyric: string): lyricType[] {
   return lyrics;
 }
 parseLyric("aaa");
+export {};
