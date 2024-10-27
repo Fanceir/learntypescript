@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development", // 或 'production'
+  mode: "production", // 或 'production'
   entry: "./index.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -17,11 +17,15 @@ module.exports = {
         test: /\.ts$/,
         loader: "ts-loader",
       },
+      {
+        test: /\.(png|jpg|gif)$/,
+        loader: "asset/resource",
+      },
     ],
   },
   devServer: {
     static: {
-      directory: path.resolve(__dirname, "dist"),
+      directory: path.resolve(__dirname, "./dist"),
     },
     port: 9000,
   },
