@@ -1,20 +1,20 @@
 //index.ts
 import axios from 'axios';
-import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import type { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 
-interface MYInterceptors {
-  requestSuccessFn?: (config: AxiosRequestConfig) => AxiosRequestConfig;
+interface MYInterceptors<T = AxiosResponse> {
+  requestSuccessFn?: (config: InternalAxiosRequestConfig) => InternalAxiosRequestConfig;
   requestFailureFn?: (err: any) => any;
-  responseSuccessFn?: (res: AxiosResponse) => AxiosResponse;
+  responseSuccessFn?: (res: T) => T;
   responseFailureFn?: (err: any) => any;
 }
-interface MYRequestConfig extends AxiosRequestConfig {
-  interceptors?: MYInterceptors;
+interface MYRequestConfig<T = AxiosResponse> extends AxiosRequestConfig {
+  interceptors?: MYInterceptors<T>;
 }
 class MYrequest {
   instance: AxiosInstance;
   //每个request的实例都有一个axios实例
-  constructor(config: AxiosRequestConfig) {
+  constructor(config: MYRequestConfig) {
     this.instance = axios.create(config);
 
     //请求拦截器
@@ -41,16 +41,18 @@ class MYrequest {
     );
 
     //
+    this.instance.interceptors.request.use(config.interceptors?.requestSuccessFn, config.interceptors?.requestFailureFn);
+    this.instance.interceptors.response.use(config.interceptors?.responseSuccessFn, config.interceptors?.responseFailureFn);
   }
   //网络请求方法封装
   request(config: AxiosRequestConfig): Promise<AxiosResponse> {
     return this.instance.request(config);
   }
-  // get(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse> {
-  //   return this.instance.get(url, config);
-  // }
-  // post(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse> {
-  //   return this.instance.post(url, data, config);
-  // }
+  get(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+    return this.instance.get(url, config);
+  }
+  post(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+    return this.instance.post(url, data, config);
+  }
 }
 export default MYrequest;
